@@ -7,24 +7,25 @@
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
+        "types": "./libs/index.d.cts",
+        "default": "./libs/index.cjs"
       },
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./libs/index.d.ts",
+        "default": "./libs/index.js"
       },
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./libs/index.d.ts",
+      "default": "./libs/index.js"
     },
     "./package.json": "./package.json"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "unpkg": "dist/index.umd.js",
+  "types": "libs/index.d.ts",
+  "main": "libs/index.cjs",
+  "module": "libs/index.js",
+  "unpkg": "libs/index.umd.js",
   "scripts": {
     "build": "rimraf dist && microbundle --format modern,cjs,umd && sh ./scripts/generate-cts.sh",
+    "lib": "rimraf libs && microbundle --format modern,cjs,umd && sh ./scripts/generate-cts.sh",
     "dev": "microbundle watch",
     "prepublishOnly": "npm run test && npm run build",
     "test": "jest",
@@ -34,7 +35,7 @@
     "check": "tsc --strict --noEmit --extendedDiagnostics"
   },
   "files": [
-    "dist/**/*",
+    "libs/**/*",
     "package.json"
   ],
   "repository": {
